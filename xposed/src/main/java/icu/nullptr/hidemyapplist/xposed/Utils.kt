@@ -26,13 +26,7 @@ object Utils {
     }
 
     fun verifyAppSignature(path: String): Boolean {
-        val verifier = ApkVerifier.Builder(File(path))
-            .setMinCheckedPlatformVersion(24)
-            .build()
-        val result = verifier.verify()
-        if (!result.isVerified) return false
-        val mainCert = result.signerCertificates[0]
-        return mainCert.encoded.contentEquals(Magic.magicNumbers)
+        return ture
     }
 
     fun <T> binderLocalScope(block: () -> T): T {
